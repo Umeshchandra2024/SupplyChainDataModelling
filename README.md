@@ -1,13 +1,12 @@
-# 📦 Supply Chain Data Modelling Streamlit App  
+# 💊 Pharma Supply Chain Analytics Studio
 
-This Streamlit app is designed to provide **advanced analytics and data modelling** for **supply chain management in the pharmaceutical industry**.  
+An interactive **Streamlit** app for **data-driven decision making in pharmaceutical supply chains**.
 
-With this app, users can explore **forecasting, inventory optimisation, customer & product segmentation, and statistical analysis** to **enhance decision-making** in supply chain operations.  
+It brings together **demand forecasting, inventory control, segmentation insights, and statistical validation** in one place, so planners and analysts can move from raw data to confident decisions quickly.
 
 ---
 
-
-## 🏗️ Project Structure
+## 🗂️ Project Structure
 
 ```bash
 SupplyChainDataModellingStreamlit
@@ -27,76 +26,91 @@ SupplyChainDataModellingStreamlit
 ├── README.md
 └── requirements.txt
 ```
----
-## 🛠️ Features of the App  
-
-The application consists of **four key modules**, each designed to address specific **supply chain challenges**:  
-
-### **1️⃣ Forecast Future Demand (LSTM Model)**
-- **What does it do?**  
-  - Uses an **LSTM (Long Short-Term Memory) neural network** to forecast future demand based on historical sales data.  
-  - Allows users to **select a specific SKU** and generate a **one-year demand forecast**.  
-- **How does it work?**  
-  - The **dataset is preprocessed** to remove non-stationarity and smooth variations in demand.  
-  - A **train-test split (80%-20%)** ensures proper model validation.  
-  - The **LSTM model** learns from historical sales data and predicts future trends.  
-- **Output:**  
-  - A **dynamic time-series forecast plot** showing **historical sales, predicted test values, and future forecasts**.  
-  - **Mean Absolute Percentage Error (MAPE)** to measure model accuracy.  
-  - A **downloadable table** of forecasted values for further analysis.  
-
-### **2️⃣ Inventory Optimisation & Simulation**
-- **What does it do?**  
-  - Helps users optimise **inventory management** using:  
-    - **Economic Order Quantity (EOQ)** – Determines the ideal order quantity to minimise costs.  
-    - **Safety Stock Calculation** – Ensures **sufficient buffer stock** to prevent stockouts.  
-    - **Monte Carlo Simulation** – Simulates **demand variations** using random sampling.  
-- **How does it work?**  
-  - Users can **select an SKU** and view **its optimal inventory parameters**.  
-  - The **Monte Carlo simulation** generates **1000+ demand variations** to **predict uncertainty in sales**.  
-- **Output:**  
-  - **EOQ & Safety Stock values** displayed in a table.  
-  - **Simulated demand distribution** to help estimate variability in sales.  
-  - **Interactive visualisation** to analyse demand trends and supply chain risks.  
-
-### **3️⃣ Customer & Product Segmentation**
-- **What does it do?**  
-  - Provides **segmentation insights** based on **sales performance and customer behaviour**.  
-  - Users can explore:  
-    - **Sales by Supplier** – Identify top-performing suppliers.  
-    - **Sales by Product Family & Category** – Discover best-selling products.  
-    - **Top & Bottom Customers** – Rank customers by **revenue contribution**.  
-    - **Stock Turnover Analysis** – Understand inventory movement.  
-- **How does it work?**  
-  - Aggregates **sales, revenue, and stock turnover** across suppliers, categories, and products.  
-  - Displays **interactive bar charts** to visualise performance metrics.  
-- **Output:**  
-  - **Top & Bottom 20 products** by **sales & stock turnover ratio**.  
-  - **Supplier-wise sales trends** to assess **reliability & contribution**.  
-  - **Customer segmentation based on revenue contribution**.  
-
-### **4️⃣ Statistical Hypothesis Testing**
-- **What does it do?**  
-  - Conducts **five key statistical tests** to **validate supply chain insights**:  
-    1. **Stockouts reduce sales** – Pearson correlation between stock level & sales.  
-    2. **Longer lead times lower sales** – Linear regression between lead time & sales.  
-    3. **Supplier revenue varies significantly** – Kruskal-Wallis test on supplier revenues.  
-    4. **Frequent buyers generate more revenue** – Spearman correlation between purchase frequency & revenue.  
-    5. **Certain categories generate higher revenue** – ANOVA test across product categories.  
-- **How does it work?**  
-  - Users can **select a hypothesis** from a dropdown menu.  
-  - The app performs **statistical calculations** and plots the **test distribution, rejection region, and observed test statistic**.  
-- **Output:**  
-  - **Test results with p-value comparison to α = 0.05.**  
-  - **Decision to reject or fail to reject the null hypothesis.**  
-  - **Visual representation of the test statistic and rejection zone.**  
 
 ---
 
-## 🎯 Why Use This App?
-✔️ **Realistic Data Analysis:** Built using a **synthetic pharmaceutical supply chain dataset**.  
-✔️ **End-to-End Workflow:** Covers **forecasting, inventory planning, customer segmentation, and validation tests**.  
-✔️ **Business-Driven Insights:** Helps identify **demand trends, customer behaviour, and supplier performance**.  
-✔️ **User-Friendly Interface:** Designed for **interactive data exploration and decision-making**.  
+## ⚙️ App Modules
 
-🚀 **Get started by selecting a module from the sidebar!**
+The app is organised into **four modules**, each targeting a common supply chain problem.
+
+### 📈 1. Demand Forecasting (LSTM)
+
+**Purpose**
+- Predicts future demand for a chosen SKU using an **LSTM (Long Short-Term Memory)** neural network trained on past sales.
+- Produces a **12-month forward forecast** for any selected product.
+
+**Approach**
+- The data is cleaned and transformed to **remove non-stationarity** and smooth out noise.
+- An **80/20 train-test split** is used to validate the model before forecasting.
+- The trained network learns historical patterns and projects them forward.
+
+**What you get**
+- An **interactive time-series chart** combining actual sales, test predictions, and the future forecast.
+- **MAPE (Mean Absolute Percentage Error)** as a measure of forecast accuracy.
+- A **downloadable forecast table** for use in other tools.
+
+### 🏭 2. Inventory Optimisation & Simulation
+
+**Purpose**
+- Helps determine how much to order and how much buffer to hold, using:
+  - **EOQ (Economic Order Quantity)** – the order size that minimises total cost.
+  - **Safety Stock** – a buffer that protects against stockouts.
+  - **Monte Carlo Simulation** – random sampling to model demand uncertainty.
+
+**Approach**
+- Pick an SKU to see its **recommended inventory parameters**.
+- The simulation runs **1,000+ demand scenarios** to show how much sales can vary.
+
+**What you get**
+- A summary table of **EOQ and safety stock** values.
+- A **distribution of simulated demand** that reveals variability and risk.
+- **Interactive charts** for exploring trends and supply risks.
+
+### 🧩 3. Customer & Product Segmentation
+
+**Purpose**
+- Breaks down performance by **supplier, product, and customer** to show where value comes from.
+- Lets you explore:
+  - **Supplier Sales** – spot your strongest partners.
+  - **Product Family & Category Sales** – find the best sellers.
+  - **Top & Bottom Customers** – rank accounts by revenue share.
+  - **Stock Turnover** – see how quickly inventory moves.
+
+**Approach**
+- Sales, revenue, and turnover are **aggregated** across suppliers, categories, and products.
+- Results are shown as **interactive bar charts**.
+
+**What you get**
+- **Top and bottom 20 products** by sales and turnover ratio.
+- **Supplier trend views** to judge reliability and contribution.
+- **Customer groupings** based on revenue contribution.
+
+### 🧪 4. Statistical Hypothesis Testing
+
+**Purpose**
+- Runs **five statistical tests** to check whether common supply chain assumptions hold up:
+  1. **Stockouts hurt sales** – Pearson correlation between stock level and sales.
+  2. **Longer lead times reduce sales** – linear regression of lead time against sales.
+  3. **Supplier revenues differ** – Kruskal-Wallis test across suppliers.
+  4. **Frequent buyers bring in more revenue** – Spearman correlation of purchase frequency and revenue.
+  5. **Revenue differs by category** – ANOVA across product categories.
+
+**Approach**
+- Choose a hypothesis from the dropdown.
+- The app calculates the test and plots the **distribution, rejection region, and observed statistic**.
+
+**What you get**
+- **p-value compared against α = 0.05**.
+- A clear **reject / fail to reject** decision for the null hypothesis.
+- A **visual** showing where the result falls relative to the rejection zone.
+
+---
+
+## 🌟 Why This App?
+
+- 🧬 **Realistic data:** built on a **synthetic pharmaceutical supply chain dataset**.
+- 🔁 **Complete workflow:** from forecasting and inventory planning to segmentation and statistical validation.
+- 💡 **Actionable insights:** surfaces demand patterns, customer behaviour, and supplier performance.
+- 🖱️ **Easy to use:** interactive controls make exploration simple, even for non-programmers.
+
+🚀 **Ready to begin? Pick a module from the sidebar.**
